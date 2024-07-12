@@ -1,6 +1,6 @@
 {
     "short_name": "Tour Tailor",
-    "name": "Tour Tailor Toloring experiences",
+    "name": "Tour Tailor Tailoring experiences",
     "icons": [
       {
         "src": "logo.svg",
@@ -30,9 +30,9 @@
     "theme_color": "#3098ff",
     "shortcuts": [
       {
-        "name": "Tour Tailor Taloring Experieces",
+        "name": "Tour Tailor Tailoring Experieces",
         "short_name": "Tour Tailor",
-        "description": "Taloring Experiences . An app to do all the trip planning within minutes",
+        "description": "Tailoring Experiences . An app to do all the trip planning within minutes",
         "url": "index.html",
         "icons":[
           {
@@ -42,7 +42,7 @@
         ]
         }
     ],
-    "description": "Taloring Experiences . An app to do all the trip planning within minutes"
+    "description": "Tailoring Experiences . An app to do all the trip planning within minutes"
 
       
     
