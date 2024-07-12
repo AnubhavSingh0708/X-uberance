@@ -9,6 +9,12 @@
    <link rel="manifest" href="manifest.json">
     <meta charset="UTF-8">
     <style>
+      *{
+        transition: all 0.5s;
+        -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+      }
 body{
 text-align: center;
 font-family: "Montserrat", sans-serif;
@@ -40,12 +46,12 @@ h1{
     width: 60%;
     margin: auto;
     border-radius: 15px;
-    background-color: #e6e6e6;
-    padding: 5px;
+    background-color: #007ade;
+    padding: 9px;
 }
 input{
     width: 100%;
-    translate: -8px 0px;
+    translate: -7px -7px;
     margin: 0px;
     margin-bottom: 10px;
     padding: 7px;
@@ -59,14 +65,69 @@ input{
   color:#1a1a1a; 
 }
 #results{
-    
+    width: 100%;
+    background-color:#FFFFFf1f ;
+    border-radius: 10px;
+    color: #fff;
+}
+#results > div{
+  width: 100%;
+  border-bottom: 1px solid #ffffffa7;
+  font-size: large;
+  padding: 6px;
+  text-align: left;
+  padding-left: 12px;
+}
+#results > div:hover{
+  background-color: #ffffff1a;
+  border-radius: 12px;
+
+}
+#results > div:last-child{
+  border-bottom: 0px solid #ffffff87;
 }
 .add-button{
-    position: fixed;
-    right: 0;
-    top: 0;
-}
+    position: fixed;  
+    right: 5px;
+    top: 5px;
+    font-size: large;
+    padding: 8px;
+    border: 3px solid #0066ff;
+    background-color: #ffffff3f;
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
 
+}
+.add-button:hover{
+  background-color: #0066ff;
+  color: #fff;
+}
+#gallery{
+  width: 98%;
+  padding: 10px;
+  overflow-x: scroll;
+  overflow: auto;
+  white-space: nowrap;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+
+}
+#gallery > div{
+  display: inline-block;
+  width: 200px;
+  border-radius: 15px;
+  margin: 10px;
+  background-size: cover;
+  color: #fff;
+  padding-top: 90Px;
+  padding-bottom: 90Px;
+  font-size: x-large;
+}
+#gallery > div:hover{
+
+  background-size:200px 230px;
+}
 @media (prefers-color-scheme: dark) {
 
 }
@@ -98,20 +159,82 @@ h1{
     <div id="container">
 <input type="text" name="" id="location" placeholder="Start Exploring">
 <div id="results">
-    <div>a</div>
-    <div>a</div>
-    <div>a</div>
-    <div>a</div>
-    <div>a</div>
-</div>
+ </div>
     </div>
+
     <button class="add-button">install</button>
-
-
+<br><br>
+<H2>Try out some popular destinations</H2>
+<div id="gallery">
+ <div onclick="setCookie('destination','London');location.assign('./browse.html');" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Elizabeth_Tower%2C_June_2022.jpg/400px-Elizabeth_Tower%2C_June_2022.jpg');">London</div>
+ <div onclick="setCookie('destination','Paris');location.assign('./browse.html');" style="background-image: url(' https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Tour_Eiffel_Wikimedia_Commons_%28cropped%29.jpg/615px-Tour_Eiffel_Wikimedia_Commons_%28cropped%29.jpg');">Paris</div>
+ <div onclick="setCookie('destination','Dubai');location.assign('./browse.html');" style="background-image: url('https://upload.wikimedia.org/wikipedia/en/thumb/9/93/Burj_Khalifa.jpg/439px-Burj_Khalifa.jpg');">Dubai</div>
+ <div onclick="setCookie('destination','Maldives');location.assign('./browse.html');" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Maldives_Oriental_sweetlips%2C_Plectorhinchus_vittatus.jpg/576px-Maldives_Oriental_sweetlips%2C_Plectorhinchus_vittatus.jpg');">Maldives</div>
+ <div onclick="setCookie('destination','Barcelona');location.assign('./browse.html');" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Torre_Gl%C3%B2ries_nocturna.jpg/512px-Torre_Gl%C3%B2ries_nocturna.jpg');">Barcelona</div>
+</div>
+<script src="tourdata.js"></script>
     <script>
-        if ('serviceWorker' in navigator) {
+      setCookie("destination","");
+
+function findIndexes(arr, searchString) {
+    const indexes = [];
+    for (let i = 0; i < arr.length; i++) {
+        if ((arr[i].toLowerCase()).includes((searchString).toLowerCase())) {
+            indexes.push(arr[i]);
+        }
+    }
+    return indexes;
+}
+document.getElementById("location").onblur = function() {
+  document.getElementById("results").innerHTML="";
+  var prompt = document.getElementById("location").value;
+ var outs= findIndexes( touristDestinations,prompt);
+ for(let a=0; a<outs.length;a++){
+
+ 
+var pr=outs[a].replaceAll(' ', '+')
+  var url;
+
+console.log(outs[a]);
+ fetch("https://api.unsplash.com/search/photos?client_id=vgpq6uUJPPKs1aBj8NfGosb5JNchfD9PAdv912rLYsc&query="+pr).then((response)=>{
+
+ response.json().then((data) =>{
+  
+  url=data.results[0].urls.thumb;
+
+  document.getElementById("results").innerHTML+="<div onclick=\"setCookie('destination','"+outs[a]+"');location.assign('./browse.html');\"><img width='25px' height='25px' style='border-radius: 4px; translate:0px 5px;'  src="+url+" >&nbsp&nbsp"+outs[a]+"</div>";
+ 
+ }
+,
+
+  (reason) => {
+    document.getElementById("results").innerHTML+="<div>&nbsp&nbsp&nbsp&nbsp"+outs[a]+"</div>";
+    console.error(reason); // Error!
+    
+  },
+);
+
+
+ },
+  (reason) => {
+    document.getElementById("results").innerHTML+="<div>&nbsp&nbsp&nbsp&nbsp"+outs[a]+"</div>";
+    console.error(reason); // Error!
+    
+  },
+
+);
+
+  
+}
+
+console.log(inhtml);
+};
+
+
+
+     if ('serviceWorker' in navigator) {
   navigator.serviceWorker
-    .register('/sw.js')
+    .register('/X-uberance/sw.js')
     .then(() => { console.log('Service Worker Registered'); });
 }
 
@@ -144,6 +267,34 @@ window.addEventListener('beforeinstallprompt', (e) => {
     });
   });
 });
+
+function setCookie(cname,cvalue) {
+  const d = new Date();
+  d.setTime(d.getTime() + (100*24*60*60*1000));
+  let expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  console.log(cvalue)
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+if (getCookie("email")==""){
+  location.assign('/login.html')
+}
     </script>
 </body>
 </html>
