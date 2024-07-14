@@ -1,7 +1,16 @@
 self.addEventListener('install', (e) => {
     e.waitUntil(
       caches.open('tourtailor').then((cache) => cache.addAll([
-        '/X-uberance/offline.html'
+        '/offline.html',
+        '/data.js',
+        '/description.js',
+        '/tourdata.js',
+        '/manifest.json',
+        '/logo512.png',
+        '/logo128.png',
+        '/logo48.png',
+        '/logo.svg'
+
       ])),
     );
   });
@@ -37,7 +46,7 @@ self.addEventListener('install', (e) => {
             console.log("Fetch failed; returning offline page instead.", error);
   
             const cache = await caches.open("tourtailor");
-            const cachedResponse = await cache.match("/X-uberance/offline.html");
+            const cachedResponse = await cache.match("/offline.html");
             return cachedResponse;
           }
         })()

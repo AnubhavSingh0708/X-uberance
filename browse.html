@@ -2,28 +2,351 @@
 <html lang="en">
 <head>
     <link rel="shortcut icon" href="logo.svg" type="image/xml+svg">
-  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,300;0,400;1,100&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./logo.svg" type="image/xml+svg">
+   
     <meta charset="UTF-8">
     <style>
 body{
+  padding-left:12vw;
+  padding-right: 36vw;
+  background-image: url('data:image/svg+xml;utf8,<svg width="10" height="10" xmlns="http://www.w3.org/2000/svg"><rect width="10" height="10" fill="none" stroke="lightblue" stroke-width="0.5"/></svg>');
+  background-size: 8px 8px; /* Size of the grid squares */
+  background-color: #e5eaf1;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+}
+
+    h2{
+    
+    font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-size: x-large;
+  margin-bottom: 0px;
+  padding: 9px;
+  border-radius: 15px 15px 0px 0px;
+  background-color: #007ade;
+  width: fit-content;
+  color: #fff;
+
+}
+
+#thumb{
+   height: 100px;
+   translate: 0px 15px;
+   border-radius: 12px;
+}
+h1{
+  font-size: 90px;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  color: #1a1a1a;
+  padding: 20px;
+  
+  letter-spacing: -5px;
+  border-radius: 25px;
+  background-color: #fff;
+  width: fit-content;
+  box-shadow: 1px 1px 3cm #007ade34;
+}
+.list{
+    background-color: #007ade;
+    padding: 5px;
+    border-radius: 0px 15px 15px 15px;
+}
+.list > div{
+  width: 98%;
+  border-bottom: 1px solid #ffffffa7;
+  font-size: large;
+  padding: 6px;
+  text-align: left;
+  background-color: #ffffff60;
+}
+.list > div:hover{
+  background-color: #ffffffaf;
+
+}
+.list > div:active{
+  background-color: #ffffffff;
+
+}
+.list > div:last-child{
+  border-bottom: 0px solid #ffffff87;
+  border-radius: 0px 0px 12px 12px;
+}
+.list > div:first-child{
+  border-radius: 12px 12px 0px 0px;
+}
+#details{
+    position: fixed;
+    top: 20px;
+    height: 65vh;
+    right: 20px;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+
+    width: calc(36vw - 80px);
+    overflow-y: scroll;
+}
+#stats{
+    position: fixed;
+    bottom: 5px;
+    height: 20vh;
+    right: 20px;
+    background-color: #000;
+    border-radius: 20px;
+    padding: 20px;
+    color: #fff;
+    width: calc(36vw - 80px);
+    overflow-y: scroll;
+
+}
+#costmenu{
+  display: block;
+  width: 11vw;
+  top: 0.5vw;
+  left: 10px;
+  height: 100vh;
+  overflow-y: scroll;
+  position: fixed;
+  background: transparent;
+}
+#costmenu > div{
+ margin-bottom: 10px;
+ font-weight: 300;
+ color: #fff;
 text-align: center;
+ width: 11vw;
+ height: 11vw;
+ background-image: linear-gradient(to right, #007ade 90%, white 90%);
+border-radius: 20px;
+}
+#costmenu > div:nth-child(2){
+  background-image: linear-gradient(to right, #00dcb3 90%, white 90%);
+}
+#costmenu > div:nth-child(3){
+  background-image: linear-gradient(to right, #8cef86 90%, white 90%);
+}
+#costmenu > div:nth-child(4){
+  background-image: linear-gradient(to right, #f9f871 90%, white 90%);
+}
+
+#costbar{
+  display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #007ade 0%, white 0%);
+    color: white;
+    font-size: 20px;
+}
+
+#percentageText {
+    position: absolute;
+}
+a{
+  display: none;
 }
 
 @media (prefers-color-scheme: dark) {
 
 }
 @media only screen and (max-width: 600px) {
- 
+    body{
+    padding-left:5px;
+    padding-right: 5px;
+    }
+    h1{
+        font-size: 35px;
+        padding: 10px;
+  
+  letter-spacing: -2px;
+  border-radius: 12px;}
+  #thumb{
+   height: 42px;
+   translate: 0px 6px;
+   border-radius: 8px;
+}
+#details{
+  display: none;
+    position: relative;
+    width: auto;
+    height: auto;
+    margin-left: 20px;
+}
+#stats{
+    position: relative;
+    width: auto;
+    height: auto;
+    margin-left: 20px;
+}
+
+
+.mohide{
+  display: none;
+  width: 99%;
+}
+#costmenu{
+  display:none;
+}
+#costbar{
+  display: block;
+}
+a{
+  display: inline;
+}
 }
 </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tour Tailor | Tailoring Experiences</title>
 </head>
 <body>
-    <h1>Tour Talor</h1>
-    <h2>Browse locations</h2>
-    <div>
+    
+    <h1></h1>
+    <a onclick="document.getElementById('details').style.display='block';this.style.display='none';">View Details</a>
+    <div id="details">
+      </div>
+    <h2 >Transportation Costs </h2>
+    <div class="list" id="airplanes">
+<div>Indigo 28000</div>
+<div>SpiceJet 34000</div>
+<div>Singapore Airkines 24000</div>
+<div>Emirates  45000</div>
+<div>Etihad Airlines 40800</div>
 
     </div>
+
+
+    <h2>Attractions</h2><div class="list" id="attr">
+    <div>Eiffel Tower</div>
+    <div>Louvre Museum</div>
+    <div>Arc De Triumphe</div>
+    <div>Norte Dame Cathedral</div>
+    <div>Palace of Versailles</div>
+    
+    
+
+
+    </div>
+    
+
+    <h2>Lodging</h2>
+    <div class="list" id="Lodging">
+<div> Sunset Inn 12000</div>
+<div>Monatana 21000</div>
+
+    </div>
+    <h2>Food</h2>
+    <div class="list" id="food">
+      <div>Casa de Tapas</div>
+      <div>El Mariachi</div>
+
+
+    </div>
+   <div id="costmenu">
+    <div>Transport</div>
+    <div>lodging</div>
+    <div>food</div>
+    <div>overall</div>
+   </div>
+  
+   <div id="costbar"><span id="percentageText">83%</span></div>
+<br><br><br><br>
+<div id="stats">Total Cost: $203532
+           <br>Budget: $5000000 </div>
+<script src="./description.js"></script>
+<script src="./tourdata.js"></script>
+<script >
+
+var pn, tc,atr,res,food ,budget;
+
+
+
+
+    function setCookie(cname,cvalue) {
+  const d = new Date();
+  d.setTime(d.getTime() + (100*24*60*60*1000));
+  let expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+var n=0;
+var des=getCookie("destination");
+if (des==""){
+    location.assign("./");
+} else{
+    fetch("https://api.unsplash.com/search/photos?client_id=vgpq6uUJPPKs1aBj8NfGosb5JNchfD9PAdv912rLYsc&query="+des).then((response)=>{
+
+response.json().then((data) =>{
+ 
+ url=data.results[0].urls.raw;
+
+ document.getElementsByTagName("h1")[0].innerHTML+="<img id='thumb' src='"+url+"'>"+des;
+
+ ind=touristDestinations.indexOf(des);
+ if(ind==-1){}else if(ind>87){}else{
+ document.getElementById("details").innerHTML= desc[ind];
+
+
+ }
+ 
+
+
+}
+,
+
+ (reason) => {
+   document.getElementById("results").innerHTML+="<div>&nbsp&nbsp&nbsp&nbsp"+outs[a]+"</div>";
+   console.error(reason); // Error!
+   
+ },
+);
+
+
+},
+ (reason) => {
+   document.getElementById("results").innerHTML+="<div>&nbsp&nbsp&nbsp&nbsp"+outs[a]+"</div>";
+   console.error(reason); // Error!
+   
+ },
+
+);
+}
+
+
+
+
+  
+    function refresh(){
+      document.getElementById('costbar').style.background = `linear-gradient(to right, black ${10}%, white ${30}%)`;
+    }
+
+</script>
 </body>
 </html>

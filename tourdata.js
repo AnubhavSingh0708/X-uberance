@@ -1,12 +1,10 @@
-const touristDestinations = [
-    "Paris",
+const touristDestinations = ["Paris",
     "Tokyo",
     "New York",
     "London",
     "Rome",
     "Barcelona",
-    "Istanbul",
-    
+    "Istanbul", 
     "Singapore",
     "Bangkok",
     "Hong Kong",

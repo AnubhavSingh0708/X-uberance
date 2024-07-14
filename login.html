@@ -12,141 +12,138 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-      body{
-        transition: all 0.3s;
-        font-family: "Montserrat", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 300;
-        background-repeat: no-repeat;
+     *{
+      transition: all 0.5s;
+     }
+    
+     #t{
+   width: 100px;
+   translate: 10px 4px;
+}
+body{
+  text-align: center;
   background-attachment: fixed;
-        background-size: 100% 100vh;
-        height: 90vh;
-        padding-top: 20vh;
-      }
-      *{transition: all 0.3s;}
-      #card{
-        width: 50vw;
-        padding: 20px;
-        margin: auto;
-        border-radius: 30px;
-      }
-      h1{
-        margin: auto;
-        font-weight: 700;
-          font-size: calc(3vw + 20px);
-      }
-      input{
-        width: 100%;
-        font-size: 18px;
-        border-radius: 10px;
-        border: none;
-        line-height: 40px;
-        margin-bottom: 10px;
-        font-family: "Montserrat", sans-serif;
-        font-weight: 400;
-      }
-      input:focus{
-        font-weight: 500;
-        border:#ffb310 solid 2px;
-        outline: none;
-        box-shadow:2px 2px 20px #ffb310;
-        margin-bottom: 30px;
-      }
-      #subm{
-        background-color: #ffb310;
-        border: none;
-        color: #fff;
-        padding: 12px;
-        font-size: large;
-        border-radius: 10px;
-      }
+  background-image: url('../background.jpeg');
+  background-size: cover;
+  padding-top: 18vh;
+  padding-left: 0;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+}
+h1{
+  font-size: 80px;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: -3px;
+  color: #1a1a1a;
+  margin-bottom: 0px;
+}
+h2{
+    
+    font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-size: xx-large;
+}
+label{
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: italic;
+  margin-top: 10px;
+}
+input{
+  margin-bottom: 10px;
 
-      @media (prefers-color-scheme: light) {
-        body{
-          background: linear-gradient(45deg, #ffb310 0%, #ffa734 15%, rgb(255, 255, 255)100%); 
-          color: #1f1f1f;
-        }
-        #card{
-          background-color: #fff;
+  width: 100%;
+    translate: -7px 0px;
+    margin: 0px;
+    padding: 7px;
+    font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  line-height: 25px;
+  color:#1a1a1a; 
+}
+button{
+  font-size: large;
+    padding: 8px;
+    border: 3px solid #0066ff;
+    background-color: #ffffff3f;
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    margin: 20px;
+    margin-left: calc(50% - 38px);
+}
+button:hover{
+  background-color: #0066ff;
+  color: #fff;
+}
+#card{
+  background-color: #ffffff2f;
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  width: 75vw;
+  margin: auto;
+  padding: 10px;
+}
+.pane{
+  display: inline-block;
+  width:49%;
+  height:max-content;
+}
+.inp{
+  text-align: left;
+  padding: auto;
+  margin-top: 0;
+}
 
-        box-shadow:5px 5px 30px #0000002d;
-        }
-        h1{
-          background: rgb(18,0,52);
-background: linear-gradient(90deg, rgba(18,0,52,1) 0%, rgba(85,9,121,1) 35%, rgba(0,154,205,1) 100%); 
-background-clip: text;
--webkit-background-clip: text;
-color: transparent;
-        
-        }
-        input{
-          background-color: #f3f3f3;
-          border-bottom:#ffb310 solid 2px;
-        }
-        input:focus{
-          background-color: #ffffff;
-        }
-        #subm:hover{
-          padding: 15px;
-          background-color: #ffa734;
-        }
-      }
 
       @media (prefers-color-scheme: dark) {
-        .desele{
-        background-color: #ffffff2d;
-        color: #fff;
-      }
-        body{
-          background: linear-gradient(45deg, rgb(15, 0, 43) 0%, rgb(48, 3, 70)35% , rgb(0, 79, 105)100%); 
-          color: #e2e2e2;
-        }
-        #card{
-          background-color: #ffffff0f;
-          backdrop-filter: blur(200px);
-        box-shadow:5px 5px 30px #ffb310;
-        }
-        h1{
-          color: #ffb310;
-        }
-        input{
-          background-color: #ffffff27;
-          color: #fff;
-          border:#ffb310 solid 2px;
-        }
-        input:focus{
-          background-color: #ffffff41;
-        }
-        #subm:hover{
-          padding: 15px;
-          background-color: #0000000d;
-          border: #ffb310 2px solid;
-        }
+       
       }
       @media only screen and (max-width: 600px) {
-        body{
-          padding: 0;
-          height: 100vh;
-        }
-       #card{
+        #t{
+   width: 60px;
+   translate: 6px 4px;
+}
 
-        width: calc(100% - 60px);
-        margin: 0;
-        padding: 30px;
-        padding-top: 20vh;
-        border-radius: 0;
-        height: 100vh;
-        position: absolute;
-        top: 0;
-        left: 0;
-       }
-
+h1{
+  font-size: 54px;
+  letter-spacing: -1.5px;
+}
+#card{
+  background-color: #ffffff00;
+  backdrop-filter: blur(0px);
+ padding: 0%;
+ width: 99%;
+}
+.pane{
+  width: calc(100vw - 60px);
+}
+.inp{
+  background-color: #ffffff4f;
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  padding: 20px;
+}
       }
     </style>
 </head>
 <body>
-  <div id="card">
-<h1>Login to Astrology</h1><br>
+  <div id="card"><div class="pane">
+    <h1><img id="t" src="../logo128.png" alt="T">our Tailor</h1><br>
+   <h2>Log in</h2>
+</div>
+
+<div class="pane inp">
 <label for="UID">Enter your email</label>
 <input type="email" id="mail" placeholder="enter your email here"><br>
 
@@ -159,30 +156,83 @@ if (this.type === 'password') {
   this.type = 'password';
 }"
 id="pass" placeholder="double click to show password"><br>
-<button id="subm" ">Submit</button><br>
+<button id="subm" ">Submit</button>
+</div>
 <a href="./signup.html">create Account</a>
   </div>
     <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword ,sendEmailVerification } from 'https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js'
+        
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCfOpX187qp4gNcix0OizN6-YrD6-fxRZw",
+      authDomain: "tour-tailor.firebaseapp.com",
+      projectId: "tour-tailor",
+      storageBucket: "tour-tailor.appspot.com",
+      messagingSenderId: "1072845898924",
+      appId: "1:1072845898924:web:e8fecc407ec7d00fe9cb09"
+    };
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
 
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
-        import { getAuth,signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
-        const firebaseConfig = {
-          apiKey: "AIzaSyD2oDITqZBMIWMBYTTR9j7VhqnlB4G-cQo",
-          authDomain: "astrology-apps.firebaseapp.com",
-          databaseURL: "https://astrology-apps-default-rtdb.asia-southeast1.firebasedatabase.app",
-          projectId: "astrology-apps",
-          storageBucket: "astrology-apps.appspot.com",
-          messagingSenderId: "97890834181",
-          appId: "1:97890834181:web:478258fd9dc0cffca8896c",
-          measurementId: "G-WPDV44HYBB"
-        };
-      
+var email,password;
+    document.getElementById("subm").onclick = function() {
+      email=document.getElementById("mail").value;
+       password=document.getElementById("pass").value;
+       
 
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth();
-        function setCookie(cname,cvalue) {
+       signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    
+    if(!user.emailVerified){
+      alert("email not verified");
+
+      sendEmailVerification(auth.currentUser)
+  .then(() => {
+    alert("email verification link sent to "+email)
+  });
+      setTimeout(checkver, 5000);
+    } else{
+      setCookie("email",email);
+      setCookie("password",password);
+      location.assign("../");
+    }
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorMessage);
+    // ..
+  });
+
+
+
+    }
+    
+    function checkver(){
+    signInWithEmailAndPassword(auth, email,password)
+  .then((userCredential) => {
+
+    // Signed in 
+    const user = userCredential.user;
+    if(!user.emailVerfied){
+      setTimeout(checkver, 5000);
+    } else{
+      //display website
+      setCookie("email",email);
+      setCookie("password",password);
+     location.assign('../');
+
+    }});}
+
+
+    function setCookie(cname,cvalue) {
   const d = new Date();
-  d.setTime(d.getTime() + (1000000000));
+  d.setTime(d.getTime() + (100*24*60*60*1000));
   let expires = "expires=" + d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
@@ -203,28 +253,11 @@ function getCookie(cname) {
   return "";
 }
 
-if (!(getCookie("email") ==="") && !(getCookie("pass") ==="")){
-  
-location.assign("./");}
-        document.getElementById("subm").addEventListener("click",function (){
-
-          var password=document.getElementById("pass").value;
-    var email=document.getElementById("mail").value;
-        signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    
-    setCookie("email",email);
-    setCookie("pass",password);
-location.assign("./");
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    alert(errorMessage);
-  });
-},false);
+if(getCookie(password)!==""){
+  location.assign("../");
+}
+      
+      
       </script>
 </body>
 </html>

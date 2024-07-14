@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="shortcut icon" href="logo.svg" type="image/xml+svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+     *{
+      transition: all 0.5s;
+     }
+    
+     #t{
+   width: 100px;
+   translate: 10px 4px;
+}
+body{
+  text-align: center;
+  background-attachment: fixed;
+  background-image: url('../background.jpeg');
+  background-size: cover;
+  padding-top: 18vh;
+  padding-left: 0;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+}
+h1{
+  font-size: 80px;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: -3px;
+  color: #1a1a1a;
+  margin-bottom: 0px;
+}
+h2{
+    
+    font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-size: xx-large;
+}
+label{
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: italic;
+  margin-top: 10px;
+}
+input{
+  margin-bottom: 10px;
+
+  width: 100%;
+    translate: -7px 0px;
+    margin: 0px;
+    padding: 7px;
+    font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  line-height: 25px;
+  color:#1a1a1a; 
+  background-color: #ffffff6f;
+}
+button{
+  font-size: large;
+    padding: 8px;
+    border: 3px solid #0066ff;
+    background-color: #ffffff3f;
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    margin: 20px;
+    margin-left: calc(50% - 38px);
+}
+button:hover{
+  background-color: #0066ff;
+  color: #fff;
+}
+#card{
+  background-color: #ffffff2f;
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  width: 75vw;
+  margin: auto;
+  padding: 10px;
+}
+.pane{
+  display: inline-block;
+  width:49%;
+  height:max-content;
+}
+.inp{
+  text-align: left;
+  padding: auto;
+  margin-top: 0;
+}
+
+
+      @media (prefers-color-scheme: dark) {
+       
+      }
+      @media only screen and (max-width: 600px) {
+        #t{
+   width: 60px;
+   translate: 6px 4px;
+}
+
+h1{
+  font-size: 54px;
+  letter-spacing: -1.5px;
+}
+#card{
+  background-color: #ffffff00;
+  backdrop-filter: blur(0px);
+ padding: 0%;
+ width: 99%;
+}
+.pane{
+  width: calc(100vw - 60px);
+}
+.inp{
+  background-color: #ffffff4f;
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  padding: 20px;
+}
+      }
+    </style>
+</head>
+<body>
+  <div id="card"><div class="pane">
+    <h1><img id="t" src="../logo128.png" alt="T">our Tailor</h1><br>
+   <h2>Sign Up</h2>
+</div>
+
+<div class="pane inp">
+<label for="UID">Enter your email</label>
+<input type="email" id="mail" placeholder="enter your email here"><br>
+
+<label for="pass">Password</label>
+<input type="password"
+ondblclick="  
+if (this.type === 'password') {
+  this.type = 'text';
+} else {
+  this.type = 'password';
+}"
+id="pass" placeholder="double click to show password"><br>
+<button id="subm" ">Submit</button>
+</div>
+<a href="./login.html">Log in</a>
+  </div>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+    import { getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword ,sendEmailVerification } from 'https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js'
+        
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCfOpX187qp4gNcix0OizN6-YrD6-fxRZw",
+      authDomain: "tour-tailor.firebaseapp.com",
+      projectId: "tour-tailor",
+      storageBucket: "tour-tailor.appspot.com",
+      messagingSenderId: "1072845898924",
+      appId: "1:1072845898924:web:e8fecc407ec7d00fe9cb09"
+    };
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    // Initialize Firebase
+  var email,password;
+    document.getElementById("subm").onclick = function() {
+      email=document.getElementById("mail").value;
+       password=document.getElementById("pass").value;
+     
+      if((/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/).test(email)){
+        
+      if((/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/).test(password)){
+
+
+        createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    
+    if(!user.emailVerified){
+      alert("email not verified");
+
+      sendEmailVerification(auth.currentUser)
+  .then(() => {
+    alert("email verification link sent to "+email)
+  });
+      setTimeout(checkver, 5000);
+    } else{
+      setCookie("email",email);
+      setCookie("password",password);
+      location.assign("../");
+    }
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorMessage);
+    // ..
+  });
+
+
+
+
+      }
+      else{
+        alert("Invalid password");
+      }
+
+      }else{
+        alert("Invalid email");
+      }
+
+    }
+    function checkver(){
+    signInWithEmailAndPassword(auth, email,password)
+  .then((userCredential) => {
+
+    // Signed in 
+    const user = userCredential.user;
+    if(!user.emailVerfied){
+      setTimeout(checkver, 5000);
+    } else{
+      //display website
+      setCookie("email",email);
+      setCookie("password",password);
+     location.assign('../');
+
+    }});}
+
+
+    function setCookie(cname,cvalue) {
+  const d = new Date();
+  d.setTime(d.getTime() + (100*24*60*60*1000));
+  let expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+if(getCookie(password)!==""){
+  location.assign("../");
+}
+  </script>
+</body>
+</html>
