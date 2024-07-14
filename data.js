@@ -201,11 +201,123 @@ const restaurants = [
     "Tapas Bar & Grill"
 ];
 
-var attractions =[
-"Eiffel Tower",
-"Louvre Museum",
-"Arc De Triumphe",
-"Norte Dame Cathedral",
-"Palace of Versailles",
-"Le Marasis"
-]
+
+
+var londonp= [
+  "Buckingham Palace",
+  "Tower of London",
+  "Tower Bridge",
+  "London Eye",
+  "Hyde Park",
+  "The British Museum",
+  "National Gallery",
+  "St Paul's Cathedral",
+  "Churchill War Rooms",
+  "Kensington Palace",
+  "Camden Market",
+  "Borough Market",
+  "Victoria and Albert Museum",
+  "Natural History Museum",
+  "Westminster Abbey",
+  "Shakespeare's Globe",
+  "Tate Modern",
+  "Kew Gardens",
+  "Warner Bros Studio Tour London - The Making of Harry Potter"
+];
+var parisp= [
+  "Eiffel Tower",
+  "Louvre Museum",
+  "Notre Dame Cathedral",
+  "Arc de Triomphe",
+  "Montmartre",
+  "Palace of Versailles",
+  "Musée d'Orsay",
+  "Champs-Élysées",
+  "Latin Quarter",
+  "Sacré-Coeur Basilica",
+  "Disneyland Paris",
+  "Musée Picasso",
+  "Jardin du Luxembourg",
+  "Seine River",
+  "Galeries Lafayette",
+  "Le Marais",
+  "Musée Rodin",
+  "Canal Saint-Martin",
+  "Catacombs of Paris"
+];
+var dubaip= [
+  "Burj Khalifa",
+  "Dubai Fountain",
+  "Palm Jumeirah",
+  "Atlantis, The Palm",
+  "Burj Al Arab",
+  "Dubai Mall",
+  "Dubai Miracle Garden",
+  "Dubai Museum",
+  "Madinat Jumeirah",
+  "Dubai Desert Conservation Reserve",
+  "Sheikh Zayed Road",
+  "Dubai Gold Souk",
+  "Dubai Spice Souk",
+  "Dubai Frame",
+  "IMG Worlds of Adventure",
+  "Ski Dubai"
+];
+var maldivesp= [
+  "Malé Atoll",
+  "Sun Island",
+  "Banana Reef",
+  "Alimatha Island",
+  "Maafushi Island",
+  "HP Reef",
+  "Utheemu Island",
+  "National Museum",
+  "The Grand Friday Mosque",
+  "Whale Submarine",
+  "Kanuhura Island",
+  "COMO Cocoa Island",
+  "Dhigurah Island",
+  "Fua Mulaku Atoll"
+];
+var barcelonap= [
+  "Sagrada Familia",
+  "Park Güell",
+  "Casa Battló",
+  "Casa Milà",
+  "La Rambla",
+  "Barceloneta Beach",
+  "Gothic Quarter",
+  "Picasso Museum",
+  "Camp Nou",
+  "Montjuïc",
+  "National Museum of Catalan Art",
+  "Santa Maria del Mar",
+  "Palau Güell",
+  "Icaria Beach",
+  "Tibidabo",
+  "Barcelona Cathedral",
+  "Arc de Triomf",
+  "Liceu Opera House"
+];
+const popularAirlines = [
+  "Qatar Airways",
+  "Singapore Airlines",
+  "Emirates",
+  "ANA All Nippon Airways",
+  "Cathay Pacific Airways",
+  "Japan Airlines",
+  "Turkish Airlines",
+  "EVA Air",
+  "Air France",
+  "Swiss International Air Lines",
+  "Lufthansa",
+  "Delta Air Lines",
+  "American Airlines",
+  "United Airlines",
+  "British Airways",
+  "KLM Royal Dutch Airlines",
+  "Qantas Airways",
+  "Etihad Airways",
+  "Virgin Atlantic",
+  "Aer Lingus"
+];

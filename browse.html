@@ -34,7 +34,9 @@ body{
   color: #fff;
 
 }
-
+.sele{
+  background-image: linear-gradient(90deg, #007ade,#fff);
+}
 #thumb{
    height: 100px;
    translate: 0px 15px;
@@ -159,6 +161,17 @@ a{
   display: none;
 }
 
+.newst{
+    font-size: large;
+    padding: 8px;
+    border: 3px solid #0066ff;
+    background-color: #ffffff3f;
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+
+}
+
+
 @media (prefers-color-scheme: dark) {
 
 }
@@ -214,26 +227,22 @@ a{
 <body>
     
     <h1></h1>
+    
     <a onclick="document.getElementById('details').style.display='block';this.style.display='none';">View Details</a>
     <div id="details">
       </div>
+      <input class="newst" type="number" value="100000" placeholder="Enter the number of people" onchange="budget=parseInt(this.value); refresh();"><br><br>
+          
+
     <h2 >Transportation Costs </h2>
     <div class="list" id="airplanes">
-<div>Indigo 28000</div>
-<div>SpiceJet 34000</div>
-<div>Singapore Airkines 24000</div>
-<div>Emirates  45000</div>
-<div>Etihad Airlines 40800</div>
+
 
     </div>
 
 
     <h2>Attractions</h2><div class="list" id="attr">
-    <div>Eiffel Tower</div>
-    <div>Louvre Museum</div>
-    <div>Arc De Triumphe</div>
-    <div>Norte Dame Cathedral</div>
-    <div>Palace of Versailles</div>
+
     
     
 
@@ -243,36 +252,43 @@ a{
 
     <h2>Lodging</h2>
     <div class="list" id="Lodging">
-<div> Sunset Inn 12000</div>
-<div>Monatana 21000</div>
+
 
     </div>
     <h2>Food</h2>
     <div class="list" id="food">
-      <div>Casa de Tapas</div>
-      <div>El Mariachi</div>
+    
 
 
     </div>
    <div id="costmenu">
-    <div>Transport</div>
-    <div>lodging</div>
-    <div>food</div>
-    <div>overall</div>
+    <div id="tgraph">Transport</div>
+    <div id="lgraph">lodging</div>
+    <div id="fgraph">food</div>
+    <div id="graph">overall</div>
    </div>
   
    <div id="costbar"><span id="percentageText">83%</span></div>
 <br><br><br><br>
 <div id="stats">Total Cost: $203532
            <br>Budget: $5000000 </div>
-<script src="./description.js"></script>
+
+
+           when are you going <br>
+
+           <input type="date" id="going" class="newst" onchange="refresh()"><br><br>
+           Number of people <br>
+           <input class="newst" type="number" value="1" placeholder="Enter the number of people" onchange="pn=parseInt(this.value); refresh();"><br><br>
+           <button class="newst" onclick="location.assign('./payment.html');">Proceed</button>
+<script  src="./description.js"></script>
 <script src="./tourdata.js"></script>
+<script src="./data.js"></script>
 <script >
 
-var pn, tc,atr,res,food ,budget;
+var pn =1, tc=28000,atr=9000,res=0,food =0,budget=100000,atrn=3;
 
 
-
+  
 
     function setCookie(cname,cvalue) {
   const d = new Date();
@@ -312,7 +328,65 @@ response.json().then((data) =>{
  ind=touristDestinations.indexOf(des);
  if(ind==-1){}else if(ind>87){}else{
  document.getElementById("details").innerHTML= desc[ind];
+ 
+ if(des=== "London"){
+  var texta;
+  for(let i=0;i<londonp.length;i++){
+    let cost=500+ Math.floor(Math.random() * 200);
+document.getElementById("attr").innerHTML+="<div class='ab' onclick=\"this.classList.add(\'sele\');atrn+=1;refresh(); atr+="+cost+";\">"+londonp[i]+" "+cost+"</div>"
+  }
+  
 
+ } else  if(des=== "Paris"){
+  for(let i=0;i<parisp.length;i++){
+    let cost=500+ Math.floor(Math.random() * 200);
+document.getElementById("attr").innerHTML+="<div class='ab' onclick=\"this.classList.add(\'sele\');atrn+=1 ;refresh();atr+="+cost+";\">"+parisp[i]+" "+cost+"</div>"
+  }
+  
+ } else  if(des=== "Dubai"){
+  for(let i=0;i<dubaip.length;i++){
+    let cost=500+ Math.floor(Math.random() * 200);
+document.getElementById("attr").innerHTML+="<div class='ab' onclick=\"this.classList.add(\'sele\');atrn+=1 ;refresh();atr+="+cost+";\">"+dubaip[i]+" "+cost+"</div>"
+  }
+  
+} else  if(des=== "Maldives"){
+  for(let i=0;i<maldivesp.length;i++){
+    let cost=500+ Math.floor(Math.random() * 200);
+document.getElementById("attr").innerHTML+="<div class='ab' onclick=\"this.classList.add(\'sele\');atrn+=1; refresh(); atr+="+cost+";\">"+maldivesp[i]+" "+cost+"</div>"
+  }
+  
+} else  if(des=== "Barcelona"){
+  for(let i=0;i<barcelonap.length;i++){
+    let cost=500+ Math.floor(Math.random() * 200);
+document.getElementById("attr").innerHTML+="<div class='ab' onclick=\"this.classList.add(\'sele\');atrn+=1; refresh();atr+="+cost+";\">"+barcelonap[i]+" "+cost+"</div>"
+  }
+  
+
+
+
+}else{
+  document.getElementById("attr").innerHTML="not in database";
+}
+
+
+for(let i=0;i<6;i++){
+    let cost=28000+ Math.floor(Math.random() * 5500);
+    let i=Math.floor(Math.random() * 19);
+document.getElementById("airplanes").innerHTML+="<div class='ab' onclick=\"this.classList.add(\'sele\');refresh(); tc+="+cost+";\">"+popularAirlines[i]+" "+cost+"</div>";
+  }
+  
+  for(let i=0;i<6;i++){
+    let cost=28000+ Math.floor(Math.random() * 5500);
+    let i=Math.floor(Math.random() *60);
+document.getElementById("Lodging").innerHTML+="<div class='ab' onclick=\"this.classList.add(\'sele\');refresh(); res+="+cost+";\">"+hotel[i]+" "+cost+"</div>";
+  }
+  
+  for(let i=0;i<6;i++){
+    let cost=28000+ Math.floor(Math.random() * 5500);
+    let i=Math.floor(Math.random() *60);
+document.getElementById("food").innerHTML+="<div class='ab' onclick=\"this.classList.add(\'sele\');refresh(); food+="+cost+";\">"+restaurants[i]+" "+cost+"</div>";
+  }
+  
 
  }
  
@@ -344,7 +418,19 @@ response.json().then((data) =>{
 
   
     function refresh(){
-      document.getElementById('costbar').style.background = `linear-gradient(to right, black ${10}%, white ${30}%)`;
+      let totalExpendiure=(atr+tc+res+food)*pn;
+      let percent = (totalExpendiure*100)/budget ;
+      let transportpercent= (tc/(budget/3))*100;
+      let hotelpercent= (res/(budget/3))*100;
+      let foodpercent= (food/(budget/3))*100;
+      document.getElementById('costbar').style.background = `linear-gradient(to right, #0066ff ${percent}%, white ${percent}%)`;
+      document.getElementById('graph').style.background = `linear-gradient(to right,#f9f871 ${percent}%, white ${percent}%)`;
+      document.getElementById('fgraph').style.background = `linear-gradient(to right,#8cef86 ${foodpercent}%, white ${foodpercent}%)`;
+      document.getElementById('lgraph').style.background = `linear-gradient(to right,#00dcb3 ${hotelpercent}%, white ${hotelpercent}%)`;
+      document.getElementById('tgraph').style.background = `linear-gradient(to right,#007ade ${transportpercent}%, white ${transportpercent}%)`
+
+      document.getElementById("stats").innerHTML="Total Cost: ₹"+(atr+tc+res+food)+"<br> Budget: ₹"+budget;
+      document.getElementById('percentageText').innerHTML=percent+"%";
     }
 
 </script>
