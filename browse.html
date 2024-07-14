@@ -222,7 +222,7 @@ a{
 }
 </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tour Tailor | Tailoring Experiences</title>
+    <title>Tour Tailor Neo| Tailoring Experiences</title>
 </head>
 <body>
     
@@ -333,32 +333,32 @@ response.json().then((data) =>{
   var texta;
   for(let i=0;i<londonp.length;i++){
     let cost=500+ Math.floor(Math.random() * 200);
-document.getElementById("attr").innerHTML+="<div class='ab' onclick=\"this.classList.add(\'sele\');atrn+=1;refresh(); atr+="+cost+";\">"+londonp[i]+" "+cost+"</div>"
+document.getElementById("attr").innerHTML+="<div class='ab' onclick=\"this.classList.add(\'sele\');atrn+=1;atr+="+cost+";refresh();\">"+londonp[i]+" "+cost+"</div>"
   }
   
 
  } else  if(des=== "Paris"){
   for(let i=0;i<parisp.length;i++){
     let cost=500+ Math.floor(Math.random() * 200);
-document.getElementById("attr").innerHTML+="<div class='ab' onclick=\"this.classList.add(\'sele\');atrn+=1 ;refresh();atr+="+cost+";\">"+parisp[i]+" "+cost+"</div>"
+document.getElementById("attr").innerHTML+="<div class='ab' onclick=\"this.classList.add(\'sele\');atrn+=1 ;atr+="+cost+";refresh();\">"+parisp[i]+" "+cost+"</div>"
   }
   
  } else  if(des=== "Dubai"){
   for(let i=0;i<dubaip.length;i++){
     let cost=500+ Math.floor(Math.random() * 200);
-document.getElementById("attr").innerHTML+="<div class='ab' onclick=\"this.classList.add(\'sele\');atrn+=1 ;refresh();atr+="+cost+";\">"+dubaip[i]+" "+cost+"</div>"
+document.getElementById("attr").innerHTML+="<div class='ab' onclick=\"this.classList.add(\'sele\');atrn+=1 ;atr+="+cost+";refresh();\">"+dubaip[i]+" "+cost+"</div>"
   }
   
 } else  if(des=== "Maldives"){
   for(let i=0;i<maldivesp.length;i++){
     let cost=500+ Math.floor(Math.random() * 200);
-document.getElementById("attr").innerHTML+="<div class='ab' onclick=\"this.classList.add(\'sele\');atrn+=1; refresh(); atr+="+cost+";\">"+maldivesp[i]+" "+cost+"</div>"
+document.getElementById("attr").innerHTML+="<div class='ab' onclick=\"this.classList.add(\'sele\');atrn+=1;  atr+="+cost+";refresh();\">"+maldivesp[i]+" "+cost+"</div>"
   }
   
 } else  if(des=== "Barcelona"){
   for(let i=0;i<barcelonap.length;i++){
     let cost=500+ Math.floor(Math.random() * 200);
-document.getElementById("attr").innerHTML+="<div class='ab' onclick=\"this.classList.add(\'sele\');atrn+=1; refresh();atr+="+cost+";\">"+barcelonap[i]+" "+cost+"</div>"
+document.getElementById("attr").innerHTML+="<div class='ab' onclick=\"this.classList.add(\'sele\');atrn+=1; atr+="+cost+";refresh();\">"+barcelonap[i]+" "+cost+"</div>"
   }
   
 
@@ -372,19 +372,19 @@ document.getElementById("attr").innerHTML+="<div class='ab' onclick=\"this.class
 for(let i=0;i<6;i++){
     let cost=28000+ Math.floor(Math.random() * 5500);
     let i=Math.floor(Math.random() * 19);
-document.getElementById("airplanes").innerHTML+="<div class='ab' onclick=\"this.classList.add(\'sele\');refresh(); tc+="+cost+";\">"+popularAirlines[i]+" "+cost+"</div>";
+document.getElementById("airplanes").innerHTML+="<div class='ab' onclick=\"this.classList.add(\'sele\'); tc+="+cost+";refresh();\">"+popularAirlines[i]+" "+cost+"</div>";
   }
   
   for(let i=0;i<6;i++){
     let cost=28000+ Math.floor(Math.random() * 5500);
     let i=Math.floor(Math.random() *60);
-document.getElementById("Lodging").innerHTML+="<div class='ab' onclick=\"this.classList.add(\'sele\');refresh(); res+="+cost+";\">"+hotel[i]+" "+cost+"</div>";
+document.getElementById("Lodging").innerHTML+="<div class='ab' onclick=\"this.classList.add(\'sele\'); res+="+cost+";refresh();\">"+hotel[i]+" "+cost+"</div>";
   }
   
   for(let i=0;i<6;i++){
     let cost=28000+ Math.floor(Math.random() * 5500);
     let i=Math.floor(Math.random() *60);
-document.getElementById("food").innerHTML+="<div class='ab' onclick=\"this.classList.add(\'sele\');refresh(); food+="+cost+";\">"+restaurants[i]+" "+cost+"</div>";
+document.getElementById("food").innerHTML+="<div class='ab' onclick=\"this.classList.add(\'sele\'); food+="+cost+";refresh();\">"+restaurants[i]+" "+cost+"</div>";
   }
   
 
@@ -429,7 +429,7 @@ document.getElementById("food").innerHTML+="<div class='ab' onclick=\"this.class
       document.getElementById('lgraph').style.background = `linear-gradient(to right,#00dcb3 ${hotelpercent}%, white ${hotelpercent}%)`;
       document.getElementById('tgraph').style.background = `linear-gradient(to right,#007ade ${transportpercent}%, white ${transportpercent}%)`
 
-      document.getElementById("stats").innerHTML="Total Cost: ₹"+(atr+tc+res+food)+"<br> Budget: ₹"+budget;
+      document.getElementById("stats").innerHTML="Total Cost: ₹"+totalExpendiure+"<br> Budget: ₹"+budget+"<br>Days: "+(atrn/3);
       document.getElementById('percentageText').innerHTML=percent+"%";
     }
 

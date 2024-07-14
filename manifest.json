@@ -1,6 +1,6 @@
 {
-    "short_name": "Tour Tailor",
-    "name": "Tour Tailor Tailoring experiences",
+    "short_name": "Tour Tailor Neo",
+    "name": "Tour Tailor Neo Tailoring experiences",
     "icons": [
       {
         "src": "logo.svg",
@@ -30,8 +30,8 @@
     "theme_color": "#3098ff",
     "shortcuts": [
       {
-        "name": "Tour Tailor Tailoring Experieces",
-        "short_name": "Tour Tailor",
+        "name": "Tour Tailor Neo Tailoring Experieces",
+        "short_name": "Tour Tailor neo",
         "description": "Tailoring Experiences . An app to do all the trip planning within minutes",
         "url": "index.html",
         "icons":[
